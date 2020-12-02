@@ -24,11 +24,13 @@ hs_err_pid*
 
 build/
 bin/
-*.iml
-*.iws
+out/
 .idea/
 .DS_Store
 .classpath
 .project
 .settings/
-out/
+.gradle/
+*.bin
+*.iml
+*.iws
