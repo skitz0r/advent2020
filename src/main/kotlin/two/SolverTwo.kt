@@ -1,30 +1,57 @@
 package two
 
+import java.lang.IndexOutOfBoundsException
 import java.lang.RuntimeException
 
 object SolverTwo {
 
+    enum class RULE_TYPE {
+        COUNT,
+        POSITION
+    }
     /**
      * Given a bunch of Strings, how many satisfy their own Rule?
      */
-    fun solve(lines: Collection<String>): Int {
-        return lines.filter { it.passesRule() }.size
+    fun solve(lines: Collection<String>, debug: Boolean = false, ruleType: RULE_TYPE = RULE_TYPE.COUNT): Int {
+        if (debug) {
+            lines.forEach {
+                if (it.passesRule(ruleType)) {
+                    println("PASS: $it")
+                } else {
+                    println("FAIL: $it")
+                }
+            }
+        }
+        return lines.filter { it.passesRule(ruleType) }.size
     }
 
-    fun String.passesRule(): Boolean {
+    fun String.passesRule(ruleType: RULE_TYPE): Boolean {
         val input = getInput(this)
         val rule = getRule(this)
 
-        val inputIterator = input.toCharArray().iterator()
-        var count = 0
-        while (inputIterator.hasNext()) {
-            if (inputIterator.nextChar() == rule.char) {
-                count++
+        when (ruleType) {
+            RULE_TYPE.COUNT -> {
+                val inputIterator = input.toCharArray().iterator()
+                var count = 0
+                while (inputIterator.hasNext()) {
+                    if (inputIterator.nextChar() == rule.char) {
+                        count++
+                    }
+                }
+
+                return rule.min <= count && count <= rule.max
+            }
+            RULE_TYPE.POSITION -> {
+                return try {
+                    val inputArray = input.toCharArray()
+                    val minChar = inputArray[rule.min - 1] // stupid idiot rule
+                    val maxChar = inputArray[rule.max - 1]
+                    (minChar == rule.char) xor (maxChar == rule.char)
+                } catch (oob: IndexOutOfBoundsException) {
+                    false
+                }
             }
         }
-
-        return rule.min >= count &&
-                rule.max >= count
     }
 
     fun getRule(text: String): Rule {

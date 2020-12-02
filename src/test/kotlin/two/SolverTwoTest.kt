@@ -10,7 +10,12 @@ class SolverTwoTest {
 
     @Test
     fun partOne() {
-        println("Part one: ${SolverTwo.solve(inputs)}")
+        println("Part one: ${SolverTwo.solve(inputs, ruleType = SolverTwo.RULE_TYPE.COUNT)}")
+    }
+
+    @Test
+    fun partTwo() {
+        println("Part two: ${SolverTwo.solve(inputs, debug = true, ruleType = SolverTwo.RULE_TYPE.POSITION)}")
     }
 
     @Test

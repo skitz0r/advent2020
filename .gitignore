@@ -1,6 +1,7 @@
 # Compiled class file
 *.class
 
+.gradle/*
 # Log file
 *.log
 
@@ -30,7 +31,6 @@ out/
 .classpath
 .project
 .settings/
-.gradle/
 *.bin
 *.iml
 *.iws
