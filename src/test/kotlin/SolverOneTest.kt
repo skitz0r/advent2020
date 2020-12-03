@@ -3,7 +3,7 @@ import two.SolverOne
 
 class SolverOneTest {
 
-    val inputStream = SolverOneTest::class.java.getResource("/input1").openStream()
+    val inputStream = SolverOneTest::class.java.getResource("/inputs/input1").openStream()
     val inputs = inputStream.reader().readLines().map { it.toInt() }
 
     @Test

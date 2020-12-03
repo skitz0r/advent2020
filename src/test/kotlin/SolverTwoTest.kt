@@ -4,7 +4,7 @@ import two.SolverTwo
 
 class SolverTwoTest {
 
-    val inputStream = SolverOneTest::class.java.getResource("/input2").openStream()
+    val inputStream = SolverOneTest::class.java.getResource("/inputs/input2").openStream()
     val inputs = inputStream.reader().readLines()
 
     @Test
