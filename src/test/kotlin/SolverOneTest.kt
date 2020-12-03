@@ -1,10 +1,9 @@
-package one
-
 import org.junit.jupiter.api.Test
+import two.SolverOne
 
 class SolverOneTest {
 
-    val inputStream = SolverOneTest::class.java.getResource("/one/input").openStream()
+    val inputStream = SolverOneTest::class.java.getResource("/input1").openStream()
     val inputs = inputStream.reader().readLines().map { it.toInt() }
 
     @Test

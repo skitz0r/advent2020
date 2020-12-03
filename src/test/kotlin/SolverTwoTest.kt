@@ -1,11 +1,10 @@
-package two
-
-import one.SolverOneTest
 import org.junit.jupiter.api.Test
+import two.Rule
+import two.SolverTwo
 
 class SolverTwoTest {
 
-    val inputStream = SolverOneTest::class.java.getResource("/two/input").openStream()
+    val inputStream = SolverOneTest::class.java.getResource("/input2").openStream()
     val inputs = inputStream.reader().readLines()
 
     @Test
