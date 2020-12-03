@@ -1,6 +1,7 @@
 # Compiled class file
 *.class
 
+.gradle/*
 # Log file
 *.log
 
@@ -24,11 +25,12 @@ hs_err_pid*
 
 build/
 bin/
-*.iml
-*.iws
+out/
 .idea/
 .DS_Store
 .classpath
 .project
 .settings/
-out/
+*.bin
+*.iml
+*.iws
